@@ -14,7 +14,7 @@
 <meta property="og:description" content="malloc calloc realloc new 区别  1234malloc向系统申请一块未初始化的内存，申请失败返回NULL，申请成功返回指向该内存的指针calloc是在malloc的基础上初始化内存为&amp;#x27;0&amp;#x27;realloc会重新分配内存大小new分配错误会抛出异常，new操作流程：系统申请内存-&gt;构造函数-&gt;返回指向内存指针  new 避免分配错误抛出异常">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-05T08:39:25.240Z">
-<meta property="article:modified_time" content="2023-08-05T09:45:32.417Z">
+<meta property="article:modified_time" content="2023-08-05T09:57:11.384Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -158,6 +158,10 @@
 <li>使用delete 来释放delete[]内存泄漏问题</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用delete 来释放delete[] 是否有内存泄漏 取决于new 对象构造函数中是否存在内存分配</span><br><span class="line">delete 只会回收系统分配的内存</span><br></pre></td></tr></table></figure>
+<ul>
+<li>指针 引用 解引用 解地址</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">指针是变量，存储的是内存地址。可以进行修改</span><br><span class="line">引用是别名，允许多个不同变量访问同一个地址，修改一处，其他都会被修改</span><br><span class="line">解引用 *， 取地址 &amp;</span><br><span class="line">引用的底层实现是常量指针，常量指针在初始化的时候需要绑定指定对象，绑定之后不能修改指定对象</span><br><span class="line">大部分情况下不能对引用解引用，除非是引用的是指针</span><br><span class="line">    int a = 0;</span><br><span class="line">    int *b = &amp;a;</span><br><span class="line">    int* &amp;c = b;</span><br><span class="line">    int c = *c;</span><br></pre></td></tr></table></figure>
   </div>
 </article>
 
